@@ -1,0 +1,10 @@
+{% for iface in interfaces %}
+interface {{ iface.name }}
+ip address {{ iface.ip }} {{ iface.mask }}
+description {{ iface.description }}
+{% if iface.active or iface.description=="mgmt_ip_address" %}
+no shutdown
+{%else%}
+shutdown
+{% endif%}
+{% endfor %}

@@ -1,0 +1,20 @@
+interfaces:
+  - name: e0/0
+    ip: 192.168.1.2
+    mask: 255.255.255.0
+    description: mgmt_ip_address
+    active: true
+  - name: e0/1
+    ip: 192.168.4.1
+    mask: 255.255.255.0
+    description: LAN1
+    active: true
+  - name: e0/2
+    ip: 192.168.3.2
+    mask: 255.255.255.252
+    description: to_R2
+    active: true
+
+dhcp_relay_agent:
+  - interface: e0/1
+    helper_address: 192.168.2.1

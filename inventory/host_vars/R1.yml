@@ -1,0 +1,45 @@
+interfaces:
+  - name: e0/0
+    ip: 192.168.1.1
+    mask: 255.255.255.0
+    description: mgmt_ip_address
+    active: true
+  - name: e0/1
+    ip: 192.168.2.1
+    mask: 255.255.255.0
+    description: LAN1
+    active: true
+  - name: e0/2
+    ip: 192.168.3.1
+    mask: 255.255.255.252
+    description: to_R2
+    active: true
+
+dhcp:
+  exclude_address:
+    ip:
+      - 192.168.2.1
+      - 192.168.4.1
+    range:
+      - name: LAN1
+        start: 192.168.2.2
+        end: 192.168.2.254
+      - name: LAN2
+        start: 192.168.4.2
+        end: 192.168.3.254
+
+  pools:
+    - pool: LAN1
+      network: 192.168.2.0
+      mask: 255.255.255.0
+      gateway: 192.168.2.1
+      dns_server:
+        - 8.8.8.8
+        - 8.8.4.4
+    - pool: LAN2
+      network: 192.168.4.0
+      mask: 255.255.255.0
+      gateway: 192.168.4.1
+      dns_server:
+        - 8.8.8.8
+        - 8.8.4.4

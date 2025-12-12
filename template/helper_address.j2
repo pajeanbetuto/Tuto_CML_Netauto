@@ -1,0 +1,4 @@
+{% for agent in dhcp_relay_agent %}
+int {{ agent.interface }}
+ ip helper-address {{  agent.helper_address }}
+{%endfor%}
