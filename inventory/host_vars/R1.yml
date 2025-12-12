@@ -35,7 +35,6 @@ dhcp:
       dns_server:
         - 8.8.8.8
         - 8.8.4.4
-      lease: 86400
     - pool: LAN2
       network: 192.168.4.0
       mask: 255.255.255.0
@@ -43,7 +42,6 @@ dhcp:
       dns_server:
         - 8.8.8.8
         - 8.8.4.4
-      lease: 86400
 
 
 ospf:
