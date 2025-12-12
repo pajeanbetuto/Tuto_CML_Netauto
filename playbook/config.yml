@@ -1,0 +1,28 @@
+- name: configuration
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: backup cisco nodes
+      ios_config:
+        backup: yes
+        backup_options:
+          dir_path: ./files
+          filename: "{{ inventory_hostname }}_backup_before.txt"
+    - name: interfaces configuration
+      ios_config:
+        src: ../templates/interfaces.j2
+    - name: dhcp configuration
+      ios_config:
+        src: ../templates/dhcp.j2
+      when: inventory_hostname == "R1"
+
+    - name: helper address configuration
+      ios_config:
+        src: ../templates/helper_address.j2
+      when: inventory_hostname == "R1"
+    - name: backup cisco nodes
+      ios_config:
+        backup: yes
+        backup_options:
+          dir_path: ./files
+          filename: "{{ inventory_hostname }}_backup_after.txt"
