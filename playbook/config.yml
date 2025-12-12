@@ -29,3 +29,7 @@
         backup_options:
           dir_path: ./files
           filename: "{{ inventory_hostname }}_backup_after.txt"
+    - name: save configuration
+      ios_command:
+        commands:
+          - write memory
