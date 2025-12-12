@@ -20,6 +20,9 @@
       ios_config:
         src: ../templates/helper_address.j2
       when: inventory_hostname == "R2"
+    - name: ospf configuration
+      ios_config:
+        src: ../templates/ospf.j2
     - name: backup cisco nodes
       ios_config:
         backup: yes
