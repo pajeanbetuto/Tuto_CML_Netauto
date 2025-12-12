@@ -23,10 +23,10 @@ dhcp:
     range:
       - name: LAN1
         start: 192.168.2.2
-        end: 192.168.2.254
+        end: 192.168.2.9
       - name: LAN2
         start: 192.168.4.2
-        end: 192.168.3.254
+        end: 192.168.3.9
   pools:
     - pool: LAN1
       network: 192.168.2.0

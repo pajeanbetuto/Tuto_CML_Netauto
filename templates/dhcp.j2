@@ -9,5 +9,4 @@ ip dhcp pool {{ pool.pool}}
 network {{pool.network}} {{pool.mask}}
 dns-server {{pool.dns_server | join(" ") }}
 lease {{pool.lease}}
-
 {%endfor%}
