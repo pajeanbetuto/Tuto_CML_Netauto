@@ -30,7 +30,7 @@ dhcp:
 
 ospf:
   process_id: 1
-  router_id: 1.1.1
+  router_id: 1.1.1.1
   passive_interface:
     - e0/0
     - e0/1

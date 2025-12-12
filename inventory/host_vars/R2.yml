@@ -23,7 +23,7 @@ dhcp_relay_agent:
 
 ospf:
   process_id: 1
-  router_id: 1.1.1
+  router_id: 2.2.2.2
   passive_interface:
     - e0/0
     - e0/1
