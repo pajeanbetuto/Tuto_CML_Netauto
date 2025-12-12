@@ -27,6 +27,21 @@ dhcp:
       - name: LAN2
         start: 192.168.4.2
         end: 192.168.3.254
+  pools:
+    - pool: LAN1
+      network: 192.168.2.0
+      mask: 255.255.255.0
+      gateway: 192.168.2.1
+      dns_server:
+        - 8.8.8.8
+        - 8.8.4.4
+    - pool: LAN2
+      network: 192.168.4.0
+      mask: 255.255.255.0
+      gateway: 192.168.4.1
+      dns_server:
+        - 8.8.8.8
+        - 8.8.4.4
 
 ospf:
   process_id: 1
@@ -44,19 +59,5 @@ ospf:
         - network: 192.168.3.0
           mask: 0.0.0.3
 
-  pools:
-    - pool: LAN1
-      network: 192.168.2.0
-      mask: 255.255.255.0
-      gateway: 192.168.2.1
-      dns_server:
-        - 8.8.8.8
-        - 8.8.4.4
-    - pool: LAN2
-      network: 192.168.4.0
-      mask: 255.255.255.0
-      gateway: 192.168.4.1
-      dns_server:
-        - 8.8.8.8
-        - 8.8.4.4
+
 
