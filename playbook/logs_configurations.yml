@@ -7,7 +7,10 @@
         commands: "{{ item }}"
       loop: "{{ lookup('file', '../templates/hc.txt').split('\n') }}"
       register: cisco_logs
+    - name: debug
+      debug:
+        var: cisco_logs.stdout_lines
     - name: save output to a file
       copy:
         content: "{{ cisco_logs }}"
-        dest: "./files/cisco_logs_{{ inventory_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}_{{ ansible_date_time.minute }}_{{ ansible_date_time.second }}.txt"
+        dest: "./files/cisco_logs_{{ inventory_hostname }}.txt"
