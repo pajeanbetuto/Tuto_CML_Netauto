@@ -13,4 +13,4 @@
     - name: save output to a file
       copy:
         content: "{{ cisco_logs }}"
-        dest: "./files/cisco_logs_{{ inventory_hostname }}.txt"
+        dest: "./files/cisco_logs_{{ inventory_hostname }}_{{ now(utc=true,fmt='%Y-%m-%d %H:%M:%S') }}.txt"
