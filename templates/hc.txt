@@ -1,6 +1,6 @@
 sh ip int br
-sh ip int stat
+sh int stat
 sh ip dhcp pool
 sh ip route
 sh ip ospf neigh
-sh ip odpf database
+sh ip ospf database

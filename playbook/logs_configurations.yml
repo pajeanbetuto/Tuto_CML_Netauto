@@ -5,9 +5,9 @@
     - name: send commands from a file
       ios_command:
         commands: "{{ item }}"
-      register: cisco_logs
       loop: "{{ lookup('file', '../templates/hc.txt').split('\n') }}"
-
-    - name: Cisco logs
-      ansible.builtin.debug:
-        msg: "{{ cisco_logs.stdout_lines }}"
+      register: cisco_logs
+    - name: save output to a file
+      copy:
+        content: "{{ cisco_logs }}"
+        dest: "./files/cisco_logs_{{ inventory_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}_{{ ansible_date_time.minute }}_{{ ansible_date_time.second }}.txt"
