@@ -1,0 +1,3 @@
+- import_playbook: logs_configurations.yml
+- import_playbook: config.yml
+- import_playbook: logs_configurations.yml

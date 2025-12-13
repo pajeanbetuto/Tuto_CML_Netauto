@@ -1,0 +1,13 @@
+- name: Cisco logs
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: send commands from a file
+      ios_command:
+        commands: { { item } }
+      register: cisco_logs
+      loop: "{{ lookup('file', '../templates/hc.txt').split('\n') }}"
+
+    - name: Cisco logs
+      ansible.builtin.debug:
+        msg: "{{ cisco_logs.stdout_lines }}"
