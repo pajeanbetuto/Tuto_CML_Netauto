@@ -9,7 +9,7 @@
       register: cisco_logs
     - name: debug
       debug:
-        var: "{{cisco_logs.stdout_lines}}"
+        msg: "{{cisco_logs.stdout_lines}}"
     - name: save output to a file
       copy:
         content: "{{ cisco_logs }}"
