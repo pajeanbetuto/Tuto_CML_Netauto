@@ -1,3 +1,6 @@
+show version
+show run
+show start
 sh ip int br
 sh int stat
 sh ip dhcp pool
