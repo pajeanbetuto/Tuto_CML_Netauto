@@ -4,7 +4,7 @@
   tasks:
     - name: send commands from a file
       ios_command:
-        commands: { { item } }
+        commands: "{{ item }}"
       register: cisco_logs
       loop: "{{ lookup('file', '../templates/hc.txt').split('\n') }}"
 
