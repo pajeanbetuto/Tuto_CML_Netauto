@@ -7,6 +7,7 @@ ip dhcp excluded-address {{ ip.start }} {{ ip.end }}
 {% for pool in dhcp.pools %}
 ip dhcp pool {{ pool.pool}}
 network {{pool.network}} {{pool.mask}}
+default-router {{ pool.gateway }}
 dns-server {{pool.dns_server | join(" ") }}
 
 {%endfor%}
